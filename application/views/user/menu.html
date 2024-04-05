@@ -1,0 +1,47 @@
+
+        <h2 class="section-title">Daftar Menu</h2>
+        <p class="section-lead">Silahkan pilih menu di bawah ..</p>
+
+    <div class="row">
+        {foreach $daftarMenu as $item}
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <article class="article">
+                    <div class="article-header">
+                        <div class="article-image" data-background="{$baseurl}assets/img/menu/{$item.img}">
+                    </div>
+                    <div class="article-title">
+                        <h2><a href="#">{$item.menu}</a></h2>
+                    </div></div>
+
+                    <div class="article-details">
+                        <div class="article-title">
+                            <h4>Rp {$item.harga|number_format:0:',':'.'}</h4>
+                        </div>
+
+                        <p>{$item.deskripsi}</p>
+
+                        <div class="article-cta">
+                            <button class="btn btn-warning add-to-cart" data-id="{$item.id_menu}" data-qty="1" data-price="{$item.harga}" data-name="{$item.menu}" data-img="{$item.img}">+ Order</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        {/foreach}
+    </div>
+
+</div>
+
+<!-- <div class="cart-float" id="cart-notification">
+    <div style="display: flex; flex-basis: 15%; padding: 10px; color: #ffa426; align-items: center; justify-content: center;">
+        <div class="cart-icon">
+        <i class="fas fa-shopping-basket" style="font-size: 28px;"></i>
+        <span id="cart-items-count" class="cart-count"></span>
+        </div>
+    </div>
+    <div id="cart-subtotal" style="display: flex; flex-basis: 50%; align-items: center; color: #ffa426; justify-content: center;">
+        
+    </div>
+    <a id="checkout-link" href="{$baseurl}user/cart" class="btn btn-warning" style="display: flex; flex-basis: 35%; color: white; align-items: center; justify-content: center;">
+        Checkout
+    </a>
+</div> -->

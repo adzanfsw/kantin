@@ -1,0 +1,19 @@
+<div class="main-sidebar sidebar-style-2">
+	<aside id="sidebar-wrapper">
+	  <div class="sidebar-brand">
+		<img src="{$baseurl}assets/img/food-corner.png" height="70px" alt="food-corner">
+	  </div>
+	  <div class="sidebar-brand sidebar-brand-sm">
+		<!-- <a href="http://localhost/stisla/dist/index">St</a> -->
+	  </div>
+	  <ul class="sidebar-menu">
+		<li class="menu-header" style="color: transparent;">Dashboard</li>
+
+		<li class="menu-header">MENU</li>
+			{foreach $jenis as $item}
+				<li class=""><a class="nav-link" href="{$baseurl}user/menu?ty={$item.id_jenis}"><i class="{$item.icon}"></i> <span>{$item.jenis|upper}</span></a></li>
+			{/foreach}
+	  </ul>
+
+	</aside>
+  </div>

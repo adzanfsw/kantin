@@ -1,0 +1,101 @@
+<div class="row">
+	<div class="col-12">
+	<div class="card">
+		<div class="card-header">
+		<h4>Tambah Menu</h4>
+		</div>
+
+		<div class="card-body">
+			<form action="{$baseurl}admin/master/menu/processAdd" method="post" enctype="multipart/form-data">
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Menu</label>
+					<div class="col-sm-12 col-md-7">
+						<input type="text" class="form-control" name="namaMenu" required>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
+					<div class="col-sm-12 col-md-7">
+						<div class="input-group">
+							<div class="input-group-prepend">
+							<div class="input-group-text">
+								Rp
+							</div>
+							</div>
+							
+							<input type="text" class="form-control" name="harga" id="hargaInput" required>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
+					<div class="col-sm-12 col-md-7">
+						<textarea class="form-control" name="deskripsi" required></textarea>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis Menu</label>
+					<div class="col-sm-12 col-md-7">
+						<select class="form-control selectric" name="jenis" id="jenis" required>
+							<option value="" disabled selected hidden>-- Pilih Jenis Menu --</option>
+							{foreach $jenisMenu as $item}
+								<option value="{$item.id_jenis}">{$item.jenis}</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Stok</label>
+					<div class="selectgroup col-sm-12 col-md-7">
+					<label class="selectgroup-item">
+						<input type="radio" name="stok" value="Tersedia" class="selectgroup-input">
+						<span class="selectgroup-button">Tersedia</span>
+					</label>
+					<label class="selectgroup-item">
+						<input type="radio" name="stok" value="Habis" class="selectgroup-input">
+						<span class="selectgroup-button">Habis</span>
+					</label>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Foto Menu</label>
+					<div class="col-sm-12 col-md-7">
+						<input id="imgMenu" type="file" class="form-control" name="imgMenu" accept="image/png, image/jpeg">
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+					<div class="col-sm-12 col-md-7">
+						<button type="submit" class="btn btn-warning">Simpan</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById('hargaInput').addEventListener('input', function(event) {
+		// Get the entered value
+		let inputValue = event.target.value;
+		
+		// Remove any non-numeric characters
+		inputValue = inputValue.replace(/\D/g, '');
+		
+		// Convert the number to IDR currency format
+		inputValue = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inputValue);
+		
+		// Remove the "Rp" prefix
+		inputValue = inputValue.replace(/^Rp\s*/, '');
+
+		// Update the input value
+		event.target.value = inputValue;
+	});
+</script>

@@ -1,0 +1,46 @@
+
+<h2 class="section-title">Jenis Menu</h2>
+<p class="section-lead">Daftar Jenis Menu Food Point Alma Ata</p>
+
+<div class="row">
+	<div class="col-12">
+	<div class="card">
+		<div class="card-header">
+		<a href="{$baseurl}admin/master/jenis/addJenis" class="btn btn-warning">+ Tambah</a>
+		</div>
+
+		<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-striped" id="table-1">
+			<thead>
+				<tr>
+					<th class="text-center">#</th>
+					<th>Jenis Menu</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				{assign var="counter" value=1}
+				{foreach $jenisMenu as $item}
+					<tr>
+						<td class="text-center">{$counter}</td>
+						<td>{$item.jenis}</td>
+						<td>
+							<a href="{$baseurl}admin/master/jenis/editJenis?id={$item.id_jenis}" class="btn btn-success" style="line-height: 12px;">Edit</a>
+							<a href="{$baseurl}admin/master/jenis/delete?id={$item.id_jenis}"
+								class="btn btn-danger"
+								style="line-height: 12px;"
+								onclick="return confirm('Yakin hapus {$item.jenis}?!')"
+							>Hapus</a>
+						</td>
+					</tr>
+					{assign var="counter" value=$counter+1}
+				{/foreach}
+			</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
