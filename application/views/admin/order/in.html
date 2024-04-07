@@ -1,0 +1,62 @@
+
+<h2 class="section-title">Order Masuk</h2>
+
+<div class="row">
+<div class="col-12">
+  <div class="card">
+    <div class="card-header">
+      <a href="{$baseurl}admin/master/menu/addMenu" class="btn btn-warning">Refresh</a>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped" id="table-1">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>ID Order</th>
+              <th>Nama Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {assign var="no" value=1}
+            {foreach $order as $item}
+              <tr>
+                <td class="text-center">{$no}</td>
+                <td>{$item.id_order}</td>
+                <td>{$item.pelanggan}</td>
+                <td>Rp {$item.total|number_format:0:',':'.'}</td>
+                <td>
+                  {if $item.status == 'Order Masuk'}
+                    <div class="badge badge-info">{$item.status}</div>
+                  {else}
+                    <div class="badge badge-warning">{$item.status}</div>
+                  {/if}</td>
+                <td>
+                  {if $item.status == 'Order Masuk'}
+                    <a href="{$baseurl}admin/order/setDiproses?id={$item.id_order}" class="btn btn-outline-info" style="line-height: 12px;">Ambil Order</a>
+                  {else}
+                    <a href="{$baseurl}admin/order/takeOrder?id={$item.id_order}" class="btn btn-outline-info" style="line-height: 12px;">Ambil Order</a>
+                  {/if}
+
+                  <a href="{$baseurl}admin/order/setBatal?id={$item.id_order}"
+                    class="btn btn-outline-danger"
+                    style="line-height: 12px;"
+                    onclick="return confirm('Yakin batal order {$item.id_order}?!')"
+                  >Order Batal</a>
+                </td>
+              </tr>
+              {assign var="no" value=$no+1}
+            {/foreach}
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

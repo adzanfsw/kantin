@@ -36,6 +36,91 @@ class M_Order extends CI_Model {
 	 * For getting data from database
 	 */
 
+	function getOrderbyID($id) {
+
+		$query = $this->db->from('md_order')
+				->where('id_order', $id)
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
+
+	function getOrderIn() {
+
+		$query = $this->db->from('md_order')
+				->where_in('status', array('Order Masuk', 'Order Diproses'))
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
+
+	function listOrderbyID($id) {
+
+		$query = $this->db->from('md_order_items')
+				->where('order_id', $id)
+				->join('md_menu', 'md_menu.id_menu = md_order_items.menu_id')
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
+
+	function getOrderSuccess() {
+
+		$query = $this->db->from('md_order')
+				->where_in('status', 'Order Selesai')
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
+
+	function getOrderFail() {
+
+		$query = $this->db->from('md_order')
+				->where_in('status', 'Order Batal')
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
 
 	
 
@@ -43,7 +128,7 @@ class M_Order extends CI_Model {
 	 * For inserting data to database
 	 */
 
-	 function inOrder($order, $orderItems) {
+	function inOrder($order, $orderItems) {
 
 		// First action: Insert data into the first database
 		$result = $this->db->insert('md_order', $order);
@@ -65,10 +150,40 @@ class M_Order extends CI_Model {
 	 * For updating data in database
 	 */
 
-	 function setMenu($data, $id) {
+	function setDiproses($id) {
 
-		$this->db->where('id_menu', $id);
-		$result = $this->db->update('md_menu', $data);
+		$this->db->where('id_order', $id);
+		$result = $this->db->update('md_order', array('status' => 'Order Diproses'));
+
+		if ($this->db->affected_rows() > 0) {
+			return true; // Successful update
+		} else {
+			// Log or print the database error
+			log_message('error', $this->db->error());
+			return false; // Failed update
+		}
+
+	}
+
+	function setSelesai($id) {
+
+		$this->db->where('id_order', $id);
+		$result = $this->db->update('md_order', array('status' => 'Order Selesai'));
+
+		if ($this->db->affected_rows() > 0) {
+			return true; // Successful update
+		} else {
+			// Log or print the database error
+			log_message('error', $this->db->error());
+			return false; // Failed update
+		}
+
+	}
+
+	function setBatal($id) {
+
+		$this->db->where('id_order', $id);
+		$result = $this->db->update('md_order', array('status' => 'Order Batal'));
 
 		if ($this->db->affected_rows() > 0) {
 			return true; // Successful update
@@ -86,11 +201,6 @@ class M_Order extends CI_Model {
 	 * For delete data in database
 	 */
 
-	function delMenu($id) {
 
-		return $this->db->where('id_menu', $id)
-						->delete('md_menu');
-
-	}
 
 }

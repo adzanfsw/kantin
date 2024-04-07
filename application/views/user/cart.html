@@ -120,3 +120,26 @@
 		event.target.value = inputValue;
 	});
 </script>
+
+{if isset($notifApp) && $notifApp != NULL}
+<script>
+  var pesan	= "{$notifApp['message']}";
+  var warna	= "{$notifApp['color']}";
+  var type	= '';
+  
+  if (warna == 'red') {
+    type = 'error';
+  } else {
+    type = 'success';
+  }
+
+  // Automatically show iziToast notification when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    iziToast[type]({
+      message: pesan, // Use the JavaScript variable here
+      position: 'topCenter',
+      color: warna,
+    });
+  });
+</script>
+{/if}

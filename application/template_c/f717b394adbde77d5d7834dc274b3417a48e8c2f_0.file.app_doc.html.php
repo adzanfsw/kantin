@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-27 16:43:34
+/* Smarty version 4.3.1, created on 2024-04-07 20:51:18
   from 'C:\xampp\htdocs\kantin\application\views\admin\template\app_doc.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6603ea46239b37_87440712',
+  'unifunc' => 'content_6612a4d6d5e0a5_31777335',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f717b394adbde77d5d7834dc274b3417a48e8c2f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\template\\app_doc.html',
-      1 => 1711532578,
+      1 => 1712497836,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6603ea46239b37_87440712 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6612a4d6d5e0a5_31777335 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +46,8 @@ assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
 assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/modules/jquery-selectric/selectric.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/izitoast/css/iziToast.min.css">
 
 	<link href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/modules/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">

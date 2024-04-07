@@ -1,0 +1,66 @@
+
+<h2 class="section-title">Order Selesai</h2>
+
+<div class="row">
+<div class="col-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped" id="table-1">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>ID Order</th>
+              <th>Nama Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {assign var="no" value=1}
+            {foreach $order as $item}
+              <tr>
+                <td class="text-center">{$no}</td>
+                <td>{$item.id_order}</td>
+                <td>{$item.pelanggan}</td>
+                <td>Rp {$item.total|number_format:0:',':'.'}</td>
+                <td><div class="badge badge-success">{$item.status}</div></td>
+                <td>
+                    <a href="{$baseurl}admin/order/checkOrder?id={$item.id_order}" class="btn btn-outline-info" style="line-height: 12px;">Cek Order</a>
+                </td>
+              </tr>
+              {assign var="no" value=$no+1}
+            {/foreach}
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{if isset($notifApp) && $notifApp != NULL}
+<script>
+  var pesan	= "{$notifApp['message']}";
+  var warna	= "{$notifApp['color']}";
+  var type	= '';
+  
+  if (warna == 'red') {
+    type = 'error';
+  } else {
+    type = 'success';
+  }
+
+  // Automatically show iziToast notification when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    iziToast[type]({
+      message: pesan, // Use the JavaScript variable here
+      position: 'topCenter',
+      color: warna,
+    });
+  });
+</script>
+{/if}

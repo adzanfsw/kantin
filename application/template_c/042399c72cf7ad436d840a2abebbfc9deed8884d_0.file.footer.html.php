@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-27 16:43:34
+/* Smarty version 4.3.1, created on 2024-04-07 20:52:39
   from 'C:\xampp\htdocs\kantin\application\views\admin\template\footer.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6603ea462fbdb8_07136452',
+  'unifunc' => 'content_6612a527762b19_05873457',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '042399c72cf7ad436d840a2abebbfc9deed8884d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\template\\footer.html',
-      1 => 1711532610,
+      1 => 1712497926,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6603ea462fbdb8_07136452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6612a527762b19_05873457 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer class="main-footer">
     <div class="footer-left">
       Copyright &copy; 2024 <div class="bullet"></div> Design By <a href="https://nauval.in/">Stisla</a> <div class="bullet"></div> Graphic By <a href="https://www.freepik.com/">Freepik</a>
@@ -82,6 +82,10 @@ assets/modules/jquery-ui/jquery-ui.min.js"><?php echo '</script'; ?>
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/modules/jquery-selectric/jquery.selectric.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/izitoast/js/iziToast.min.js"><?php echo '</script'; ?>
 >
 
 <!-- Page Specific JS File -->

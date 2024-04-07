@@ -107,7 +107,7 @@ class M_Menu extends CI_Model {
 	 * For updating data in database
 	 */
 
-	 function setMenu($data, $id) {
+	function setMenu($data, $id) {
 
 		$this->db->where('id_menu', $id);
 		$result = $this->db->update('md_menu', $data);

@@ -62,30 +62,34 @@ class Order extends UserBase {
 		// insert to database
 		if ($this->M_Order->inOrder($order, $arrOrderItems)) {
 		
-			// Send back JSON response containing updated cart information
-			echo 'Sukses Boss';
+			// dump cart when refreshing
+			$this->cart->destroy();
+
+			// redirecting
+			redirect(site_url('user/order/payment?id=' . $idOrder));
 			
 		} else {
 
-			echo 'Gagal Boss';
+			$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+			redirect(site_url('user/cart'));
 
 		}
 	}
 
+	///////////////////////////////////////////////////////////////////////
+
 	public function payment() {
 
+		// data set from database
+		$getOrder = $this->M_Order->getOrderbyID($_GET['id']);
+
+		// send data to view
+		$this->smarty->assign('order', $getOrder[0]);
+
+		// set template content
 		$this->smarty->display('user/payment.html');
 
 	}
 
-	public function remove() {
-		$rowid = $this->input->post('rowid');
-		$this->cart->remove($rowid);
-		// echo json_encode(['success' => true]);
-	}
 
-	public function dump() {
-		$this->cart->destroy();
-		echo json_encode(['success' => true]);
-	}
 }

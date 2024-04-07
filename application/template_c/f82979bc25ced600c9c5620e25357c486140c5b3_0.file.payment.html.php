@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-05 20:39:41
+/* Smarty version 4.3.1, created on 2024-04-07 18:41:19
   from 'C:\xampp\htdocs\kantin\application\views\user\payment.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_660fff1dd692d5_05218532',
+  'unifunc' => 'content_6612865f870331_48295891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f82979bc25ced600c9c5620e25357c486140c5b3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\payment.html',
-      1 => 1712324380,
+      1 => 1712490077,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660fff1dd692d5_05218532 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6612865f870331_48295891 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,39 +54,33 @@ assets/img/back-yellow.png); background-size: cover; background-repeat: no-repea
     <section class="section">
       <div class="container mt-5">
         <div class="row">
-          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
               <img src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/img/food-corner.png" alt="logo" width="100">
             </div>
 
-            <div class="card card-warning">
-              <div class="card-header">
-                <p>
-                    Halo Kak , silahkan lakukan pembayaran sebesar melalui QRIS dibawah yaa! <br>
-
-                    Tunjukkan bukti pembayaran ke kasir, lalu klik tombol Selesai dibawah. Terima kasih!
-                </p>
-              </div>
+            <div class="card card-warning text-center" style="text-align: center;">
+              <div class="card-header"><h4>Order Payment</h4></div>
 
               <div class="card-body">
+                <div class="text-center">
+                  <h3 style="color: #FFA426;">Rp <?php echo smarty_modifier_number_format($_smarty_tpl->tpl_vars['order']->value['total'],0,',','.');?>
+</h3>
+                </div>
 
-                <img src="https://curiousport.com/wp-content/uploads/2019/07/qr-code.png" alt="qris" width="200">
+                <img src="https://actv.bloods-industries.co/wp-content/uploads/2020/12/Qris-Bloods-Industries-768x1055.png" alt="qris" width="200">
 
-                  <div class="form-group">
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+                <div class="form-group mt-4">
+                  <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 user/menu" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
-                      Selesai
-                    </a>
-                  </div>
+                    Selesai
+                  </a>
+                </div>
 
               </div>
             </div>
 
-            <div class="simple-footer" style="color: white;">
-              Copyright &copy; 2024 <br>
-              Design By <a href="https://nauval.in/">Stisla</a> <div class="bullet"></div> Graphic By <a href="https://www.freepik.com/">Freepik</a>
-            </div>
           </div>
         </div>
       </div>

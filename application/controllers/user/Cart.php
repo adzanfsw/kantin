@@ -33,6 +33,7 @@ class Cart extends UserBase {
 		$this->smarty->assign('isiCart', $this->cart->contents());
 		$this->smarty->assign('totalCart', $this->cart->total_items());
 		$this->smarty->assign('total', 'Rp ' . number_format($this->cart->total(), 0, ',', '.'));
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'user/cart.html');
@@ -42,6 +43,8 @@ class Cart extends UserBase {
 
 	}
 
+	///////////////////////////////////////////////////////////////////////
+
 	public function print() {
 
 		echo"<pre>";
@@ -49,6 +52,8 @@ class Cart extends UserBase {
 		exit;
 
 	}
+
+	///////////////////////////////////////////////////////////////////////
 	
 	public function add() {
 		
@@ -79,6 +84,8 @@ class Cart extends UserBase {
 		}
 	}
 
+	///////////////////////////////////////////////////////////////////////
+
 	public function update() {
 		$data = array(
 			'rowid' => $this->input->post('rowid'),
@@ -88,6 +95,8 @@ class Cart extends UserBase {
 		$this->cart->update($data);
 		// echo json_encode(['success' => true]);
 	}
+
+	///////////////////////////////////////////////////////////////////////
 
 	public function remove() {
 		$rowid = $this->input->post('rowid');
