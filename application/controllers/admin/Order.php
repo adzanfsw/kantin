@@ -25,6 +25,7 @@ class Order extends AdminBase {
 		parent::__construct();
 
 		$this->load->model('M_Order');
+		role_auth();
 	}
 	
 	public function in()
@@ -55,9 +56,16 @@ class Order extends AdminBase {
 		// print_r($listOrder);
 		// exit;
 
+		// Initialize qty variable
+		$qty = 0;
+		foreach ($listOrder as $key) {
+			$qty += (int)$key['qty'];
+		}
+
 		// send data to view
 		$this->smarty->assign('order', $getOrder[0]);
 		$this->smarty->assign('listItem', $listOrder);
+		$this->smarty->assign('qtyOrder', $qty);
 		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
@@ -96,8 +104,15 @@ class Order extends AdminBase {
 		// print_r($listOrder);
 		// exit;
 
+		// Initialize qty variable
+		$qty = 0;
+		foreach ($listOrder as $key) {
+			$qty += (int)$key['qty'];
+		}
+
 		// send data to view
 		$this->smarty->assign('order', $getOrder[0]);
+		$this->smarty->assign('qtyOrder', $qty);
 		$this->smarty->assign('listItem', $listOrder);
 
 		// set template content

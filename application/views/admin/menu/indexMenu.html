@@ -1,12 +1,12 @@
 
   <h2 class="section-title">Menu</h2>
-  <p class="section-lead">Daftar Menu Food Point Alma Ata</p>
+  <p class="section-lead">Daftar Menu Digital Student Lounge</p>
 
 <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{$baseurl}admin/master/menu/addMenu" class="btn btn-warning">+ Tambah</a>
+        <a href="{$baseurl}admin/master/menu/addMenu" class="btn btn-primary">+ Tambah</a>
       </div>
 
       <div class="card-body">
@@ -19,8 +19,10 @@
                 <th>Nama Menu</th>
                 <th>Deskripsi</th>
                 <th>Harga</th>
+                <th>Diskon</th>
                 <th>Stok</th>
                 <th>Action</th>
+                <th></th>
               </tr>
             </thead>
             
@@ -39,9 +41,18 @@
                   <td>{$item.menu}</td>
                   <td>{$item.deskripsi}</td>
                   <td>Rp {$item.harga|number_format:0:',':'.'}</td>
+
+                  {if $item.diskon == NULL}
+                    <td></td>
+                  {else}
+                    <td>{($item.diskon / $item.harga) * 100} %</td>
+                  {/if}
+
                   <td>{$item.stok}</td>
                   <td>
                     <a href="{$baseurl}admin/master/menu/editMenu?id={$item.id_menu}" class="btn btn-success" style="line-height: 12px;">Edit</a>
+                  </td>
+                  <td>
                     <a href="{$baseurl}admin/master/menu/delete?id={$item.id_menu}"
                       class="btn btn-danger"
                       style="line-height: 12px;"

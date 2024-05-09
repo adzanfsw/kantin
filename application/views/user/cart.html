@@ -26,31 +26,38 @@
 					</div>
 				</div>
 
+				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Catatan</label>
+					<div class="col-sm-12 col-md-7">
+						<input type="text" class="form-control" name="catatan" placeholder="(Opsional) Tuliskan catatan pesanan kakak disini ya ..">
+					</div>
+				</div>
+
 				<!-- <div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
 					<div class="col-sm-12 col-md-7">
 						<textarea class="form-control" name="catatan" placeholder="Tuliskan catatan pesanan kakak disini ya .." required></textarea>
 					</div>
 				</div> -->
-				
 			</div>
 		</div>
 
 		<div class="card">
-			<div class="card-body" style="padding: 20px 100px 0px 100px;">
+			<div class="card-body">
 				<table class="table" border="0" style="width: 100%;">
 					<thead>
 					  <tr>
-						<th colspan="2" style="width: 50%; font-size: 18px;">Menu Dipesan</th>
-						<th class="text-center" style="width: 15%;">Harga Satuan</th>
-						<th class="text-center" style="width: 15%;">Jumlah</th>
-						<th class="text-center" style="width: 20%;">Subtotal Menu</th>
+						<th colspan="2" style="font-size: 18px;">Menu Dipesan</th>
+						<th class="text-center">Harga Satuan</th>
+						<th class="text-center qty-width">Jumlah</th>
+						<th class="text-center">Subtotal Menu</th>
+						<th class="text-center"></th>
 					  </tr>
 					</thead>
 					<tbody>
 						{foreach $isiCart as $item}
 						<tr>
-							<td style="width: 7%;">
+							<td>
 								{if $item.img != NULL}
 								<div style="width: 50px; height: 35px; background-image: url({$baseurl}assets/img/menu/{$item.img}); background-size: cover;"> </div>
 								{else}
@@ -59,8 +66,13 @@
 							</td>
 							<td class="text-left" style="text-align: left;">{$item.name}</td>
 							<td class="text-center">Rp {$item.price|number_format:0:',':'.'}</td>
-							<td class="text-center">{$item.qty}</td>
+							<td class="text-center">
+								<a href="{$baseurl}user/cart/min?id={$item.rowid}" class="btn btn-icon btn-sm btn-light"><i class="fas fa-minus"></i></a>
+									&ensp; {$item.qty}
+								&ensp;<a href="{$baseurl}user/cart/plus?id={$item.rowid}" class="btn btn-icon btn-sm btn-light"><i class="fas fa-plus"></i></a>
+							</td>
 							<td class="text-center"><b>Rp {$item.subtotal|number_format:0:',':'.'}</b></td>
+							<td><a href="{$baseurl}user/cart/remove?id={$item.rowid}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a></td>
 
 							<!-- form data post -->
 							<input style="display: none !important;" id="jalur" type="text" name="idMenu[]" value="{$item.id}">
@@ -69,24 +81,21 @@
 						</tr>
 						{/foreach}
 
-						<tr style="border-top: 2px dotted #FDC257; background-color: #FAFDFF;">
+						<tr style="border-top: 2px dotted #0B5E91; background-color: #FAFDFF;">
 							<td colspan="3" style="padding: 20px 40px 0 40px; border-right: 2px dotted #d8d8d8;">
-								<div class="form-group row mb-4">
-									<label>Catatan</label>
-									<input type="text" class="form-control" name="catatan" placeholder="(Opsional) Tuliskan catatan pesanan kakak disini ya ..">
-								</div>
+								
 							</td>
-							<td colspan="2" class="text-center">Total Pesanan ({$totalCart} Menu): &ensp;<span style="color: #FFA426; font-size: 20px; font-weight: bold;">{$total}</span></td>
+							<td colspan="3" class="text-center">Total Pesanan ({$totalCart} Menu): <br><span style="color: #0B5E91; font-size: 20px; font-weight: bold;">{$total}</span></td>
 							<input style="display: none !important;" id="jalur" type="text" name="total" value="{$total}">
 						</tr>
 
 						<tr style="border-top: 2px dotted #d8d8d8; background-color: #FAFDFF;">
 							<td colspan="3" style="padding: 20px 40px 0 40px;"></td>
-							<td colspan="2" class="text-center">
+							<td colspan="3" class="text-center">
 								<div class="form-group row mb-4" style="margin-top: 25px;">
 									<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
 									<div class="col-sm-12 col-md-7">
-										<button type="submit" class="btn btn-lg btn-warning"><i class="far fa-edit"></i> Buat Pesanan</button>
+										<button type="submit" class="btn btn-lg btn-primary" {if $totalCart == 0} disabled {/if}><i class="far fa-edit"></i> Buat Pesanan</button>
 									</div>
 								</div>
 							</td>

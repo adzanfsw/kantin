@@ -49,11 +49,11 @@
 						</tr>
 						{/foreach}
 
-						<tr style="border-top: 2px dotted #FDC257; background-color: #FAFDFF;">
+						<tr style="border-top: 2px dotted #0B5E91; background-color: #FAFDFF;">
 							<td colspan="3" style="padding: 20px 40px 0 40px; border-right: 2px dotted #d8d8d8;">
 								<div class="form-group row mb-4"></div>
 							</td>
-							<td colspan="2" class="text-center">Total Pesanan (x Menu): &ensp;<span style="color: #FFA426; font-size: 20px; font-weight: bold;">Rp {$order.total|number_format:0:',':'.'}</span></td>
+							<td colspan="2" class="text-center">Total Pesanan ({$qtyOrder} Menu): &ensp;<span style="color: #0B5E91; font-size: 20px; font-weight: bold;">Rp {$order.total|number_format:0:',':'.'}</span></td>
 						</tr>
 
 						<tr style="border-top: 2px dotted #d8d8d8; background-color: #FAFDFF;">
@@ -79,22 +79,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-	document.getElementById('hargaInput').addEventListener('input', function(event) {
-		// Get the entered value
-		let inputValue = event.target.value;
-		
-		// Remove any non-numeric characters
-		inputValue = inputValue.replace(/\D/g, '');
-		
-		// Convert the number to IDR currency format
-		inputValue = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(inputValue);
-		
-		// Remove the "Rp" prefix
-		inputValue = inputValue.replace(/^Rp\s*/, '');
-
-		// Update the input value
-		event.target.value = inputValue;
-	});
-</script>

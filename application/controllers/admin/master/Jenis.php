@@ -25,6 +25,7 @@ class Jenis extends AdminBase {
 		parent::__construct();
 
 		$this->load->model('M_Jenis');
+		role_auth();
 	}
 	
 	public function index()
@@ -35,6 +36,7 @@ class Jenis extends AdminBase {
 
 		// send data to view
 		$this->smarty->assign('jenisMenu', $jenis);
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'admin/jenis/indexJenis.html');
@@ -48,6 +50,7 @@ class Jenis extends AdminBase {
 	public function addJenis()
 	{
 		// set template content
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 		$this->smarty->assign('template_content', 'admin/jenis/addJenis.html');
 		
 		// output
@@ -68,11 +71,13 @@ class Jenis extends AdminBase {
 		// sent data to database
 		if ($this->M_Jenis->inJenis($data)) {
 			
+			$this->session->set_flashdata('notifikasi', array('message' => 'Berhasil ditambahkan!', 'color' => 'green'));
 			redirect(site_url('admin/master/jenis'));
 
 		} else {
 			
-			echo 'Tambah Jenis Menu gagal!!';
+			$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+			redirect(site_url('admin/master/jenis/addJenis'));
 
 		}
 		
@@ -87,6 +92,7 @@ class Jenis extends AdminBase {
 
 		// send data set from database
 		$this->smarty->assign('jenisMenu', $jenis[0]);
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'admin/jenis/editJenis.html');
@@ -111,11 +117,13 @@ class Jenis extends AdminBase {
 		// sent data to database
 		if ($this->M_Jenis->setJenis($data, $idJenis)) {
 			
+			$this->session->set_flashdata('notifikasi', array('message' => 'Edit berhasil!', 'color' => 'green'));
 			redirect(site_url('admin/master/jenis'));
 
 		} else {
 			
-			echo 'Edit Jenis Menu gagal!!';
+			$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+			redirect(site_url('admin/master/jenis/editJenis'));
 
 		}
 		
@@ -129,11 +137,13 @@ class Jenis extends AdminBase {
 
 		if ($this->M_Jenis->delJenis($idJenis)) {
 
+			$this->session->set_flashdata('notifikasi', array('message' => 'Data terhapus!', 'color' => 'green'));
 			redirect(site_url('admin/master/jenis'));
 
 		} else {
 
-			echo 'Hapus data Jenis Menu gagal!!';
+			$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+			redirect(site_url('admin/master/jenis'));
 			
 		}
 		

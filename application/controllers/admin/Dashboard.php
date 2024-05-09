@@ -20,10 +20,17 @@ class Dashboard extends AdminBase {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+
+	public function __construct() {
+		parent::__construct();
+
+		role_auth();
+	}
 	
 	public function index()
 	{
 		// set template content
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 		$this->smarty->assign('template_content', 'admin/dashboard.html');
 		
 		// output

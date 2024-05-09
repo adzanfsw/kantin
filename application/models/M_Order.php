@@ -57,6 +57,7 @@ class M_Order extends CI_Model {
 
 		$query = $this->db->from('md_order')
 				->where_in('status', array('Order Masuk', 'Order Diproses'))
+				->order_by('createdt')
 				->get();
 
 		// get result
@@ -92,6 +93,7 @@ class M_Order extends CI_Model {
 
 		$query = $this->db->from('md_order')
 				->where_in('status', 'Order Selesai')
+				->order_by('createdt')
 				->get();
 
 		// get result
@@ -109,6 +111,7 @@ class M_Order extends CI_Model {
 
 		$query = $this->db->from('md_order')
 				->where_in('status', 'Order Batal')
+				->order_by('createdt')
 				->get();
 
 		// get result

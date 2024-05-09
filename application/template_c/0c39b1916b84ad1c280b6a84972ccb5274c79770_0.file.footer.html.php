@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-07 21:00:03
+/* Smarty version 4.3.1, created on 2024-05-09 07:53:59
   from 'C:\xampp\htdocs\kantin\application\views\user\template\footer.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6612a6e359e5e6_17784442',
+  'unifunc' => 'content_663c1ea7958928_55541622',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c39b1916b84ad1c280b6a84972ccb5274c79770' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\template\\footer.html',
-      1 => 1712498341,
+      1 => 1713746535,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6612a6e359e5e6_17784442 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663c1ea7958928_55541622 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- <footer class="main-footer">
   <div class="footer-left">
@@ -35,25 +35,32 @@ function content_6612a6e359e5e6_17784442 (Smarty_Internal_Template $_smarty_tpl)
 
 <!-- General JS Scripts -->
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/jquery.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/jquery.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/popper.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/popper.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/tooltip.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/tooltip.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/nicescroll/jquery.nicescroll.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/nicescroll/jquery.nicescroll.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/modules/moment.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/moment.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/js/stisla.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/js/stisla.js"><?php echo '</script'; ?>
 >
 
 <!-- JS Libraies -->
@@ -66,10 +73,12 @@ assets/modules/izitoast/js/iziToast.min.js"><?php echo '</script'; ?>
 
 <!-- Template JS File -->
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/js/scripts.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/js/scripts.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="http://localhost/stisla/assets/js/custom.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/js/custom.js"><?php echo '</script'; ?>
 >
 
 <?php echo '<script'; ?>

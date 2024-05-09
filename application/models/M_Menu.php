@@ -69,6 +69,23 @@ class M_Menu extends CI_Model {
 		return $row;
 	}
 
+	function getMenubyJenis($id) {
+
+		$query = $this->db->from('md_menu')
+				->where('jenis_id', $id)
+				->get();
+
+		// get result
+		$row = $this->temp_return_type == 'array' ? $query->result_array() :
+				$query->result($this->temp_return_type);
+
+		// temp return type
+		$this->temp_return_type = $this->return_type;
+
+		// return
+		return $row;
+	}
+
 	function getMenubyID($id) {
 
 		$query = $this->db->from('md_menu')

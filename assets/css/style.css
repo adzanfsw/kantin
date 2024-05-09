@@ -324,7 +324,7 @@ select.form-control:not([size]):not([multiple]) {
     font-size: 14px; }
 
 .selectgroup-input:focus + .selectgroup-button, .selectgroup-input:checked + .selectgroup-button {
-  background-color: #FDC257;
+  background-color: #0B5E91;
   color: #fff;
   z-index: 1; }
 
@@ -2296,7 +2296,7 @@ pre {
       border-radius: 5px;
       height: 8px;
       width: 30px;
-      background-color: #FDC257;
+      background-color: #0B5E91;
       display: inline-block;
       float: left;
       margin-top: 6px;
@@ -2621,7 +2621,7 @@ body.layout-3 .main-footer {
   padding-right: 0; }
 
 .main-sidebar .sidebar-brand {
-  background-color: #FDC257;
+  background-color: #ffffff;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -2668,7 +2668,7 @@ body.layout-3 .main-footer {
       padding: 0 20px;
       width: 100%;
       letter-spacing: .3px;
-      color: #FDC257;
+      color: #0B5E91;
       /* font-size: 18px; */
       text-decoration: none; }
       .main-sidebar .sidebar-menu li a .badge {

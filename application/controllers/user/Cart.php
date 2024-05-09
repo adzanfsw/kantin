@@ -45,6 +45,16 @@ class Cart extends UserBase {
 
 	///////////////////////////////////////////////////////////////////////
 
+	public function getCartItems() {
+
+		$cartItems = $this->cart->contents();
+    
+    	echo json_encode($cartItems);
+
+	}
+
+	///////////////////////////////////////////////////////////////////////
+
 	public function print() {
 
 		echo"<pre>";
@@ -86,22 +96,59 @@ class Cart extends UserBase {
 
 	///////////////////////////////////////////////////////////////////////
 
-	public function update() {
+	public function plus() {
+
+		$rowid = $_GET['id'];
+		$item = $this->cart->get_item($rowid);
+		$new_qty = $item['qty'] + 1; // Increment quantity by 1
+
 		$data = array(
-			'rowid' => $this->input->post('rowid'),
-			'qty'   => $this->input->post('qty')
+			'rowid' => $rowid,
+			'qty'   => $new_qty
 		);
 
-		$this->cart->update($data);
-		// echo json_encode(['success' => true]);
+		if ($this->cart->update($data)) {
+			redirect(site_url('user/cart'));
+		} else {
+			redirect(site_url('user/cart'));
+		}
+
+	}
+
+	///////////////////////////////////////////////////////////////////////
+
+	public function min() {
+
+		$rowid = $_GET['id'];
+		$item = $this->cart->get_item($rowid);
+		$new_qty = $item['qty'] - 1; // Increment quantity by 1
+
+		$data = array(
+			'rowid' => $rowid,
+			'qty'   => $new_qty
+		);
+
+		if ($this->cart->update($data)) {
+			redirect(site_url('user/cart'));
+		} else {
+			redirect(site_url('user/cart'));
+		}
+
 	}
 
 	///////////////////////////////////////////////////////////////////////
 
 	public function remove() {
-		$rowid = $this->input->post('rowid');
-		$this->cart->remove($rowid);
-		// echo json_encode(['success' => true]);
+
+		$rowid = $_GET['id'];
+
+		if ($this->cart->remove($rowid)) {
+			redirect(site_url('user/cart'));
+		} else {
+			redirect(site_url('user/cart'));
+			$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+		}
+		
 	}
 
 	public function dump() {

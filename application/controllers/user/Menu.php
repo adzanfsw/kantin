@@ -33,7 +33,12 @@ class Menu extends UserBase {
 		$this->cart->destroy();
 		
 		// data set from database
-		$menu = $this->M_Menu->getMenu();
+		if (isset($_GET['ty'])) {
+			$id_jenis = $_GET['ty']; // Assuming you want to use 'ty' as the parameter value
+			$menu = $this->M_Menu->getMenubyJenis($id_jenis);
+		} else {
+			$menu = $this->M_Menu->getMenu();
+		}
 
 		// send data to view
 		$this->smarty->assign('daftarMenu', $menu);

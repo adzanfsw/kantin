@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2024 <div class="bullet"></div> Design By <a href="https://nauval.in/">Stisla</a> <div class="bullet"></div> Graphic By <a href="https://www.freepik.com/">Freepik</a>
+      Copyright &copy; 2024 <div class="bullet"></div> Digital Student Lounge
     </div>
     <div class="footer-right">
       
@@ -32,6 +32,29 @@
 <!-- Template JS File -->
 <script src="{$baseurl}assets/js/scripts.js"></script>
 <script src="{$baseurl}assets/js/custom.js"></script>
+
+{if isset($notifApp) && $notifApp != NULL}
+    <script>
+        var pesan	= "{$notifApp['message']}";
+        var warna	= "{$notifApp['color']}";
+        var type	= '';
+        
+        if (warna == 'red') {
+            type = 'error';
+        } else {
+            type = 'success';
+        }
+
+        // Automatically show iziToast notification when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            iziToast[type]({
+            message: pesan, // Use the JavaScript variable here
+            position: 'topCenter',
+            color: warna,
+            });
+        });
+    </script>
+{/if}
 
 </body>
 </html>

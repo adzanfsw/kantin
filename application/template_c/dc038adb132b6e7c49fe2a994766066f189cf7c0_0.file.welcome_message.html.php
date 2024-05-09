@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-05 17:49:49
+/* Smarty version 4.3.1, created on 2024-05-09 07:53:54
   from 'C:\xampp\htdocs\kantin\application\views\welcome_message.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_660fd74d12f2c0_57044283',
+  'unifunc' => 'content_663c1ea23476c7_74190626',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dc038adb132b6e7c49fe2a994766066f189cf7c0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\welcome_message.html',
-      1 => 1712126055,
+      1 => 1713891832,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660fd74d12f2c0_57044283 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663c1ea23476c7_74190626 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Food Point Alma Ata</title>
+  <title>Digital Student Lounge</title>
+  <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/img/food-icon.png" />
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
@@ -44,10 +46,31 @@ assets/modules/bootstrap-social/bootstrap-social.css">
 assets/css/style.css">
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/css/components.css">
+
+  <style>
+    @media (max-width: 724px) {
+        body {
+            background-image: url('<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/img/back-yellow-port.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            margin-top: 200px;
+        }
+    }
+
+    @media (min-width: 725px) {
+        body {
+            background-image: url('<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/img/back-yellow.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+  </style>
 </head>
 
-<body style="background-image: url(<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/back-yellow.png); background-size: cover; background-repeat: no-repeat;">
+<body>
   <div id="app">
     <section class="section">
       <div class="container mt-5">
@@ -58,14 +81,14 @@ assets/img/back-yellow.png); background-size: cover; background-repeat: no-repea
 assets/img/food-corner.png" alt="logo" width="200">
             </div>
 
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header"><h4>Selamat Datang,</h4></div>
 
               <div class="card-body">
 
                   <div class="form-group">
                     <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-user/menu" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
+user/menu" type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Pesan Menu
                     </a>
                   </div>
@@ -73,9 +96,8 @@ user/menu" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
               </div>
             </div>
 
-            <div class="simple-footer" style="color: white;">
-              Copyright &copy; 2024 <br>
-              Design By <a href="https://nauval.in/">Stisla</a> <div class="bullet"></div> Graphic By <a href="https://www.freepik.com/">Freepik</a>
+            <div class="simple-footer" style="color: #0B5E91;">
+              Copyright &copy; 2024 <div class="bullet"></div> Digital Student Lounge
             </div>
           </div>
         </div>

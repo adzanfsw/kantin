@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-03 08:49:23
+/* Smarty version 4.3.1, created on 2024-05-09 07:53:59
   from 'C:\xampp\htdocs\kantin\application\views\user\template\app_doc.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_660cb5a3564901_98775311',
+  'unifunc' => 'content_663c1ea70eb572_67666593',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '926872db8ecad1008d72ca4c8f15f597fae0eb07' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\template\\app_doc.html',
-      1 => 1712108823,
+      1 => 1713922548,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_660cb5a3564901_98775311 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663c1ea70eb572_67666593 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-	<title>Food Point Alma Ata</title>
-	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/web-icon.png" />
+	<title>Digital Student Lounge</title>
+  	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/img/food-icon.png" />
 
 	<!-- General CSS Files -->
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
@@ -50,6 +50,13 @@ assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/css/components.css">
 
+	<style>
+		@media (max-width: 724px) {
+			.qty-width {
+				width:max-content;
+			}
+		}
+	</style>
 </head>
 
 <body>

@@ -16,9 +16,29 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{$baseurl}assets/css/style.css">
   <link rel="stylesheet" href="{$baseurl}assets/css/components.css">
+
+  <style>
+    @media (max-width: 724px) {
+        body {
+            background-image: url('{$baseurl}assets/img/back-yellow-port.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            margin-top: 200px;
+        }
+    }
+
+    @media (min-width: 725px) {
+        body {
+            background-image: url('{$baseurl}assets/img/back-yellow.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+  </style>
 </head>
 
-<body style="background-image: url({$baseurl}assets/img/back-yellow.png); background-size: cover; background-repeat: no-repeat;">
+<body>
   <div id="app">
     <section class="section">
       <div class="container mt-5">
@@ -28,18 +48,20 @@
               <img src="{$baseurl}assets/img/food-corner.png" alt="logo" width="100">
             </div>
 
-            <div class="card card-warning text-center" style="text-align: center;">
+            <div class="card card-primary text-center" style="text-align: center;">
               <div class="card-header"><h4>Order Payment</h4></div>
 
               <div class="card-body">
                 <div class="text-center">
-                  <h3 style="color: #FFA426;">Rp {$order.total|number_format:0:',':'.'}</h3>
+                  <h3 style="color: #0B5E91;">Rp {$order.total|number_format:0:',':'.'}</h3>
                 </div>
 
-                <img src="https://actv.bloods-industries.co/wp-content/uploads/2020/12/Qris-Bloods-Industries-768x1055.png" alt="qris" width="200">
+                <!-- <img src="{$baseurl}assets/img/qris.png" alt="qris" width="maximum-scale"> -->
 
                 <div class="form-group mt-4">
-                  <a href="{$baseurl}user/menu" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
+                  <img src="{$baseurl}assets/img/qris.jpg" alt="qris" width="275">
+                  
+                  <a href="{$baseurl}" type="submit" class="btn btn-primary btn-lg btn-block mt-4" tabindex="4">
                     Selesai
                   </a>
                 </div>

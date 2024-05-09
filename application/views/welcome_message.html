@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Food Point Alma Ata</title>
+  <title>Digital Student Lounge</title>
+  <link rel="shortcut icon" href="{$baseurl}assets/img/food-icon.png" />
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{$baseurl}assets/modules/bootstrap/css/bootstrap.min.css">
@@ -16,9 +17,29 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{$baseurl}assets/css/style.css">
   <link rel="stylesheet" href="{$baseurl}assets/css/components.css">
+
+  <style>
+    @media (max-width: 724px) {
+        body {
+            background-image: url('{$baseurl}assets/img/back-yellow-port.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            margin-top: 200px;
+        }
+    }
+
+    @media (min-width: 725px) {
+        body {
+            background-image: url('{$baseurl}assets/img/back-yellow.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+  </style>
 </head>
 
-<body style="background-image: url({$baseurl}assets/img/back-yellow.png); background-size: cover; background-repeat: no-repeat;">
+<body>
   <div id="app">
     <section class="section">
       <div class="container mt-5">
@@ -28,13 +49,13 @@
               <img src="{$baseurl}assets/img/food-corner.png" alt="logo" width="200">
             </div>
 
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header"><h4>Selamat Datang,</h4></div>
 
               <div class="card-body">
 
                   <div class="form-group">
-                    <a href="{$baseurl}user/menu" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
+                    <a href="{$baseurl}user/menu" type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Pesan Menu
                     </a>
                   </div>
@@ -42,9 +63,8 @@
               </div>
             </div>
 
-            <div class="simple-footer" style="color: white;">
-              Copyright &copy; 2024 <br>
-              Design By <a href="https://nauval.in/">Stisla</a> <div class="bullet"></div> Graphic By <a href="https://www.freepik.com/">Freepik</a>
+            <div class="simple-footer" style="color: #0B5E91;">
+              Copyright &copy; 2024 <div class="bullet"></div> Digital Student Lounge
             </div>
           </div>
         </div>

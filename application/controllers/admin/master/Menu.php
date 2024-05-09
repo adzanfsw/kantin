@@ -26,6 +26,8 @@ class Menu extends AdminBase {
 
 		$this->load->model('M_Menu');
 		$this->load->model('M_Jenis');
+
+		role_auth();
 	}
 	
 	public function index()
@@ -36,6 +38,7 @@ class Menu extends AdminBase {
 
 		// send data to view
 		$this->smarty->assign('daftarMenu', $menu);
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'admin/menu/indexMenu.html');
@@ -53,6 +56,7 @@ class Menu extends AdminBase {
 
 		// send data to view
 		$this->smarty->assign('jenisMenu', $jenis);
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'admin/menu/addMenu.html');
@@ -76,11 +80,11 @@ class Menu extends AdminBase {
 			$upload_path = './assets/img/menu/';
 
 			// Create directory if not exists
-			if (!is_dir($upload_path)) {
-				mkdir($upload_path, 0777);
-			} else {
-				chmod($upload_path, 0777);
-			}
+			// if (!is_dir($upload_path)) {
+			// 	mkdir($upload_path, 0777, true);
+			// } else {
+			// 	chmod($upload_path, 0777);
+			// }
 
 			// Set image configuration
 			$config = array(
@@ -93,12 +97,22 @@ class Menu extends AdminBase {
 			$img = $config['file_name'];
 		}
 
+		// Initialize discount variable
+		$diskon = '';
+		if ($_POST['diskon']) {
+			$price = str_replace(".", "", $_POST['harga']);
+			$diskon = (float)$price * ((float)$_POST['diskon'] / 100);
+		} else {
+			$diskon = NULL;
+		}
+
 		// Data for database insertion
 		$data = array(
 			'jenis_id'  => $_POST['jenis'],
 			'menu'      => $_POST['namaMenu'],
 			'deskripsi' => $_POST['deskripsi'],
 			'harga'     => str_replace(".", "", $_POST['harga']),
+			'diskon'	=> $diskon,
 			'stok'      => $_POST['stok'],
 			'img'       => $img,
 			'createdt'  => date('Y-m-d H:i:s'),
@@ -115,21 +129,26 @@ class Menu extends AdminBase {
 
 				// Insert data into database
 				if ($this->M_Menu->inMenu($data)) {
+					$this->session->set_flashdata('notifikasi', array('message' => 'Berhasil ditambahkan!', 'color' => 'green'));
 					redirect(site_url('admin/master/menu'));
 				} else {
 					// Delete uploaded image file if database insertion fails
 					unlink('./assets/img/menu/' . $img);
-					echo 'Tambah Menu gagal!!';
+					$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+					redirect(site_url('admin/master/menu/addMenu'));
 				}
 			} else {
-				echo 'Tambah Menu gagal!!';
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/menu/addMenu'));
 			}
 		} else {
 			// Insert data into database if no image is uploaded
 			if ($this->M_Menu->inMenu($data)) {
+				$this->session->set_flashdata('notifikasi', array('message' => 'Berhasil ditambahkan!', 'color' => 'green'));
 				redirect(site_url('admin/master/menu'));
 			} else {
-				echo 'Tambah Menu gagal!!';
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/menu/addMenu'));
 			}
 		}
 	}
@@ -145,6 +164,7 @@ class Menu extends AdminBase {
 		// send data to view
 		$this->smarty->assign('jenisMenu', $jenis);
 		$this->smarty->assign('menu', $iniMenu[0]);
+		$this->smarty->assign('notifApp', $this->session->flashdata('notifikasi'));
 
 		// set template content
 		$this->smarty->assign('template_content', 'admin/menu/editMenu.html');
@@ -175,11 +195,11 @@ class Menu extends AdminBase {
 			$upload_path = './assets/img/menu/';
 
 			// Create directory if not exists
-			if (!is_dir($upload_path)) {
-				mkdir($upload_path, 0777);
-			} else {
-				chmod($upload_path, 0777);
-			}
+			// if (!is_dir($upload_path)) {
+			// 	mkdir($upload_path, 0777);
+			// } else {
+			// 	chmod($upload_path, 0777);
+			// }
 
 			// Set image configuration
 			$config = array(
@@ -192,12 +212,26 @@ class Menu extends AdminBase {
 			$img = $config['file_name'];
 		}
 
+		// Initialize discount variable
+		$diskon = '';
+		if ($_POST['diskon']) {
+
+			$price = str_replace(".", "", $_POST['harga']);
+			$diskon = (float)$price * ((float)$_POST['diskon'] / 100);
+
+		} else {
+			
+			$diskon = NULL;
+
+		}
+
 		// Data for database insertion
 		$data = array(
 			'jenis_id'  => $_POST['jenis'],
 			'menu'      => $_POST['namaMenu'],
 			'deskripsi' => $_POST['deskripsi'],
 			'harga'     => str_replace(".", "", $_POST['harga']),
+			'diskon'	=> $diskon,
 			'stok'      => $_POST['stok'],
 			'img'       => $img,
 			'updatedt'  => date('Y-m-d H:i:s'),
@@ -217,21 +251,30 @@ class Menu extends AdminBase {
 
 				// Insert data into database
 				if ($this->M_Menu->setMenu($data, $_GET['id'])) {
+					$this->session->set_flashdata('notifikasi', array('message' => 'Edit berhasil!', 'color' => 'green'));
 					redirect(site_url('admin/master/menu'));
 				} else {
 					// Delete uploaded image file if database insertion fails
 					unlink('./assets/img/menu/' . $img);
-					echo 'Edit Menu gagal!!';
+
+					$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+					redirect(site_url('admin/master/menu/editMenu?id=' . $_GET['id']));
 				}
 			} else {
-				echo 'Edit Menu gagal!!';
+				// Capture and display the upload error
+				// $upload_error = $this->upload->display_errors();
+
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/menu/editMenu?id=' . $_GET['id']));
 			}
 		} else {
 			// Insert data into database if no image is uploaded
 			if ($this->M_Menu->setMenu($data, $_GET['id'])) {
+				$this->session->set_flashdata('notifikasi', array('message' => 'Edit berhasil!', 'color' => 'green'));
 				redirect(site_url('admin/master/menu'));
 			} else {
-				echo 'Edit Menu gagal!!';
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/menu/editMenu?id=' . $_GET['id']));
 			}
 		}
 	}
@@ -250,11 +293,13 @@ class Menu extends AdminBase {
 
 			if ($this->M_Menu->delMenu($idMenu)) {
 
+				$this->session->set_flashdata('notifikasi', array('message' => 'Data terhapus!', 'color' => 'green'));
 				redirect(site_url('admin/master/menu'));
 	
 			} else {
 	
-				echo 'Hapus data Menu gagal!!';
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/jenis'));
 				
 			}
 
@@ -262,11 +307,13 @@ class Menu extends AdminBase {
 			
 			if ($this->M_Menu->delMenu($idMenu)) {
 
+				$this->session->set_flashdata('notifikasi', array('message' => 'Data terhapus!', 'color' => 'green'));
 				redirect(site_url('admin/master/menu'));
 	
 			} else {
 	
-				echo 'Hapus data Menu gagal!!';
+				$this->session->set_flashdata('notifikasi', array('message' => 'Terjadi Kesalahan!', 'color' => 'red'));
+				redirect(site_url('admin/master/jenis'));
 				
 			}
 

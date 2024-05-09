@@ -30,6 +30,25 @@
 				</div>
 
 				<div class="form-group row mb-4">
+					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Diskon</label>
+					<div class="col-sm-12 col-md-3">
+						<div class="input-group">
+							{if $menu.diskon != NULL}
+								<input type="text" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="{($menu.diskon / $menu.harga) * 100}" name="diskon">
+							{else}
+								<input type="text" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '')" name="diskon">
+							{/if}
+
+							<div class="input-group-append">
+								<div class="input-group-text">
+									%
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
 					<div class="col-sm-12 col-md-7">
 						<textarea class="form-control" name="deskripsi" required>{$menu.deskripsi}</textarea>
@@ -79,7 +98,7 @@
 				<div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
 					<div class="col-sm-12 col-md-7">
-						<button type="submit" class="btn btn-warning">Simpan</button>
+						<button type="submit" class="btn btn-primary">Simpan</button>
 					</div>
 				</div>
 			</form>
