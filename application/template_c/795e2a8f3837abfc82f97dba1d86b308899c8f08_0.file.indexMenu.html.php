@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-28 12:30:04
+/* Smarty version 4.3.1, created on 2024-05-25 14:24:22
   from 'C:\xampp\htdocs\kantin\application\views\admin\menu\indexMenu.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6605005cce8f52_32282393',
+  'unifunc' => 'content_665192265a8f08_26703896',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '795e2a8f3837abfc82f97dba1d86b308899c8f08' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\menu\\indexMenu.html',
-      1 => 1711603802,
+      1 => 1714358718,
       2 => 'file',
     ),
   ),
@@ -20,19 +20,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6605005cce8f52_32282393 (Smarty_Internal_Template $_smarty_tpl) {
+function content_665192265a8f08_26703896 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 
   <h2 class="section-title">Menu</h2>
-  <p class="section-lead">Daftar Menu Food Point Alma Ata</p>
+  <p class="section-lead">Daftar Menu Digital Student Lounge</p>
 
 <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
         <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-admin/master/menu/addMenu" class="btn btn-warning">+ Tambah</a>
+admin/master/menu/addMenu" class="btn btn-primary">+ Tambah</a>
       </div>
 
       <div class="card-body">
@@ -45,8 +45,10 @@ admin/master/menu/addMenu" class="btn btn-warning">+ Tambah</a>
                 <th>Nama Menu</th>
                 <th>Deskripsi</th>
                 <th>Harga</th>
+                <th>Diskon</th>
                 <th>Stok</th>
                 <th>Action</th>
+                <th></th>
               </tr>
             </thead>
             
@@ -77,12 +79,22 @@ assets/img/example-image.jpg); background-size: cover;"> </div>
 </td>
                   <td>Rp <?php echo smarty_modifier_number_format($_smarty_tpl->tpl_vars['item']->value['harga'],0,',','.');?>
 </td>
+
+                  <?php if ($_smarty_tpl->tpl_vars['item']->value['diskon'] == NULL) {?>
+                    <td></td>
+                  <?php } else { ?>
+                    <td><?php echo ($_smarty_tpl->tpl_vars['item']->value['diskon']/$_smarty_tpl->tpl_vars['item']->value['harga'])*100;?>
+ %</td>
+                  <?php }?>
+
                   <td><?php echo $_smarty_tpl->tpl_vars['item']->value['stok'];?>
 </td>
                   <td>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 admin/master/menu/editMenu?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_menu'];?>
 " class="btn btn-success" style="line-height: 12px;">Edit</a>
+                  </td>
+                  <td>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 admin/master/menu/delete?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_menu'];?>
 "

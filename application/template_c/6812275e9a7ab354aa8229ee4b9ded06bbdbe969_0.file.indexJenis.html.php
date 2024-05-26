@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-03-28 10:47:29
+/* Smarty version 4.3.1, created on 2024-05-25 14:24:19
   from 'C:\xampp\htdocs\kantin\application\views\admin\jenis\indexJenis.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6604e8515dc517_31891553',
+  'unifunc' => 'content_66519223636681_41516852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6812275e9a7ab354aa8229ee4b9ded06bbdbe969' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\jenis\\indexJenis.html',
-      1 => 1711597590,
+      1 => 1713921571,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6604e8515dc517_31891553 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66519223636681_41516852 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h2 class="section-title">Jenis Menu</h2>
-<p class="section-lead">Daftar Jenis Menu Food Point Alma Ata</p>
+<p class="section-lead">Daftar Jenis Menu Digital Student Lounge</p>
 
 <div class="row">
 	<div class="col-12">
 	<div class="card">
 		<div class="card-header">
 		<a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-admin/master/jenis/addJenis" class="btn btn-warning">+ Tambah</a>
+admin/master/jenis/addJenis" class="btn btn-primary">+ Tambah</a>
 		</div>
 
 		<div class="card-body">

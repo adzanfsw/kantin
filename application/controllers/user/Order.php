@@ -42,16 +42,22 @@ class Order extends UserBase {
 			'createdt' 		=> date('Y-m-d H:i:s'),
 		);
 
-		foreach ($idMenu as $key => $value) {
-
+		// Retrieve POST data
+		$postData = $this->input->post();
+	
+		// Loop through each menu item
+		foreach ($postData['idMenu'] as $key => $menuId) {
+			$catatanField = 'catatan_' . $menuId;
+	
 			$orderItems = array(
-				'order_id'	=> $idOrder,
-				'menu_id'	=> $this->input->post('idMenu')[$key],
-				'qty'		=> $this->input->post('qty')[$key],
-				'subtotal'	=> $this->input->post('subtotal')[$key],
-				'createdt' 	=> date('Y-m-d H:i:s'),
+				'order_id' => $idOrder,
+				'menu_id' => $menuId,
+				'qty' => $postData['qty'][$key],
+				'catatan' => isset($postData[$catatanField]) ? $postData[$catatanField] : null,
+				'subtotal' => $postData['subtotal'][$key],
+				'createdt' => date('Y-m-d H:i:s'),
 			);
-
+	
 			$arrOrderItems[] = $orderItems;
 		}
 		

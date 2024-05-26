@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-05-10 14:40:43
-  from 'C:\xampp\htdocs\kantin\application\views\user\payment.html' */
+/* Smarty version 4.3.1, created on 2024-05-10 12:47:55
+  from 'C:\xampp\htdocs\kantin\application\views\auth.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_663dcf7bcdb8c8_47115383',
+  'unifunc' => 'content_663db50b841bd8_78559397',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f82979bc25ced600c9c5620e25357c486140c5b3' => 
+    'bb09a4acf0f3131faf41eff71f403e512767617c' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\payment.html',
-      1 => 1714017712,
+      0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\auth.html',
+      1 => 1713947025,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_663dcf7bcdb8c8_47115383 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
+function content_663db50b841bd8_78559397 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Food Point Alma Ata</title>
+  <title>Digital Student Lounge</title>
+  <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/img/food-icon.png" />
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
@@ -40,6 +40,8 @@ assets/modules/fontawesome/css/all.min.css">
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/izitoast/css/iziToast.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
@@ -55,7 +57,7 @@ assets/img/back-yellow-port.png');
             background-size: cover;
             background-repeat: no-repeat;
 
-            margin-top: 200px;
+            margin-top: 150px;
         }
     }
 
@@ -78,34 +80,44 @@ assets/img/back-yellow.png');
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
               <img src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/food-corner.png" alt="logo" width="100">
+assets/img/food-corner.png" alt="logo" width="200">
             </div>
 
-            <div class="card card-primary text-center" style="text-align: center;">
-              <div class="card-header"><h4>Order Payment</h4></div>
+            <div class="card card-primary">
+              <div class="card-header"><h4>Selamat Datang, Admin DiSEL!</h4></div>
 
               <div class="card-body">
-                <div class="text-center">
-                  <h3 style="color: #0B5E91;">Rp <?php echo smarty_modifier_number_format($_smarty_tpl->tpl_vars['order']->value['total'],0,',','.');?>
-</h3>
-                </div>
+                <form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+auth/logging_in" novalidate="">
+                    <div class="form-group">
+                        <label for="email">Username</label>
+                        <input id="uname" type="text" class="form-control" name="uname" tabindex="1" placeholder="Please fill in your username" required>
+                    </div>
+  
+                    <div class="form-group">
+                        <div class="d-block">
+                            <label for="password" class="control-label">Password</label>
+                        </div>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="**********" tabindex="2" required>
+                    </div>
+  
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                          Masuk
+                        </button>
+                    </div>
+                  </form>
 
-                <!-- <img src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/qris.png" alt="qris" width="maximum-scale"> -->
-
-                <div class="form-group mt-4">
-                  <img src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/qris.jpg" alt="qris" width="275">
-                  
-                  <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-" type="submit" class="btn btn-primary btn-lg btn-block mt-4" tabindex="4">
-                    Selesai
-                  </a>
-                </div>
-
+                  <div class="mt-5 text-muted text-center">
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+auth/addAdmin">Tambah Admin Baru</a>
+                  </div>
               </div>
             </div>
 
+            <div class="simple-footer" style="color: #0B5E91;">
+              Copyright &copy; 2024 <div class="bullet"></div> Digital Student Lounge
+            </div>
           </div>
         </div>
       </div>
@@ -143,6 +155,10 @@ assets/js/stisla.js"><?php echo '</script'; ?>
 >
   
   <!-- JS Libraies -->
+  <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+assets/modules/izitoast/js/iziToast.min.js"><?php echo '</script'; ?>
+>
 
   <!-- Page Specific JS File -->
 
@@ -155,6 +171,34 @@ assets/js/scripts.js"><?php echo '</script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/js/custom.js"><?php echo '</script'; ?>
 >
+
+  <?php if ((isset($_smarty_tpl->tpl_vars['notifApp']->value)) && $_smarty_tpl->tpl_vars['notifApp']->value != NULL) {?>
+    <?php echo '<script'; ?>
+>
+        var pesan	= "<?php echo $_smarty_tpl->tpl_vars['notifApp']->value['message'];?>
+";
+        var warna	= "<?php echo $_smarty_tpl->tpl_vars['notifApp']->value['color'];?>
+";
+        var type	= '';
+        
+        if (warna == 'red') {
+            type = 'error';
+        } else {
+            type = 'success';
+        }
+
+        // Automatically show iziToast notification when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            iziToast[type]({
+            message: pesan, // Use the JavaScript variable here
+            position: 'topCenter',
+            color: warna,
+            });
+        });
+    <?php echo '</script'; ?>
+>
+  <?php }?>
+
 </body>
 </html><?php }
 }

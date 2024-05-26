@@ -73,6 +73,7 @@ class Cart extends UserBase {
 			'price'		=> $this->input->post('price'),
 			'name'		=> $this->input->post('name'),
 			'img'		=> $this->input->post('img'),
+			'jenis'		=> $this->input->post('jenis'),
 		);
 		
 		// insert to cart

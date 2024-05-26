@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-05-09 07:53:59
+/* Smarty version 4.3.1, created on 2024-05-25 15:35:44
   from 'C:\xampp\htdocs\kantin\application\views\user\menu.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_663c1ea75d2704_50578702',
+  'unifunc' => 'content_6651a2e0643754_40117297',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0bd5c64873cb544464a66197360721819827e37d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\menu.html',
-      1 => 1714353653,
+      1 => 1716626128,
       2 => 'file',
     ),
   ),
@@ -20,75 +20,34 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_663c1ea75d2704_50578702 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
+function content_6651a2e0643754_40117297 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
         <h2 class="section-title">Daftar Menu</h2>
         <p class="section-lead">Silahkan pilih menu di bawah ..</p>
 
-    <div class="row">
-        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['daftarMenu']->value, 'item');
-$_smarty_tpl->tpl_vars['item']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
-$_smarty_tpl->tpl_vars['item']->do_else = false;
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['jenis']->value, 'jen');
+$_smarty_tpl->tpl_vars['jen']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['jen']->value) {
+$_smarty_tpl->tpl_vars['jen']->do_else = false;
 ?>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <article class="article">
-                    <div class="article-header">
-                        <?php if ($_smarty_tpl->tpl_vars['item']->value['img'] != NULL) {?>
-                            <div class="article-image" data-background="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/menu/<?php echo $_smarty_tpl->tpl_vars['item']->value['img'];?>
-">
-                        <?php } else { ?>
-                            <div class="article-image" data-background="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/example-image.jpg">
-                        <?php }?>
-                    </div>
-                    <div class="article-title">
-                        <h2><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['menu'];?>
-</a></h2>
-                    </div></div>
-
-                    <div class="article-details">
-                        <div class="article-title">
-                            <?php if ($_smarty_tpl->tpl_vars['item']->value['diskon'] == NULL) {?>
-                                <h4>Rp <?php echo smarty_modifier_number_format($_smarty_tpl->tpl_vars['item']->value['harga'],0,',','.');?>
-</h4>
-                            <?php } else { ?>
-                                <span style="text-decoration: line-through;">Rp <?php echo smarty_modifier_number_format($_smarty_tpl->tpl_vars['item']->value['harga'],0,',','.');?>
-</span><h4>Rp <?php echo smarty_modifier_number_format(($_smarty_tpl->tpl_vars['item']->value['harga']-$_smarty_tpl->tpl_vars['item']->value['diskon']),0,',','.');?>
-</h4>
-                            <?php }?>
-                        </div>
-
-                        <p><?php echo $_smarty_tpl->tpl_vars['item']->value['deskripsi'];?>
-</p>
-
-                        <div class="article-cta">
-                            <?php if ($_smarty_tpl->tpl_vars['item']->value['diskon'] == NULL) {?>
-                                <button class="btn btn-primary add-to-cart" data-id="<?php echo $_smarty_tpl->tpl_vars['item']->value['id_menu'];?>
-" data-qty="1" data-price="<?php echo $_smarty_tpl->tpl_vars['item']->value['harga'];?>
-" data-name="<?php echo $_smarty_tpl->tpl_vars['item']->value['menu'];?>
-" data-img="<?php echo $_smarty_tpl->tpl_vars['item']->value['img'];?>
-">+ Order</button>
-                            <?php } else { ?>
-                                <button class="btn btn-primary add-to-cart" data-id="<?php echo $_smarty_tpl->tpl_vars['item']->value['id_menu'];?>
-" data-qty="1" data-price="<?php echo $_smarty_tpl->tpl_vars['item']->value['harga']-$_smarty_tpl->tpl_vars['item']->value['diskon'];?>
-" data-name="<?php echo $_smarty_tpl->tpl_vars['item']->value['menu'];?>
-" data-img="<?php echo $_smarty_tpl->tpl_vars['item']->value['img'];?>
-">+ Order</button>
-                            <?php }?>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        <?php
+                <li class="nav-item">
+                <a <?php if ($_smarty_tpl->tpl_vars['jen']->value['jenis'] == 'Makanan') {?> class="nav-link active" <?php } else { ?> class="nav-link" <?php }?> id="<?php echo $_smarty_tpl->tpl_vars['jen']->value['jenis'];?>
+-tab" data-toggle="tab" href="#<?php echo $_smarty_tpl->tpl_vars['jen']->value['jenis'];?>
+" role="tab" aria-controls="<?php echo $_smarty_tpl->tpl_vars['jen']->value['jenis'];?>
+" aria-selected="true"><?php echo mb_strtoupper((string) $_smarty_tpl->tpl_vars['jen']->value['jenis'] ?? '', 'UTF-8');?>
+</a>
+                </li>
+            <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-    </div>
+        </ul>
 
+        <div class="tab-content" id="myTabContent">
+            <?php echo $_smarty_tpl->tpl_vars['daftarMenu']->value;?>
+
+        </div>
 </div>
 
 <div class="section-header" style="position: sticky; bottom: 0; background-color: #fff; z-index: 1000;">

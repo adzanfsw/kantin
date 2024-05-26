@@ -55,7 +55,9 @@ class M_Menu extends CI_Model {
 	function getMenu() {
 
 		$query = $this->db->from('md_menu')
+				->join('md_jenis', 'md_jenis.id_jenis = md_menu.jenis_id')
 				->where('stok', 'Tersedia')
+				->order_by('menu', 'ASC')
 				->get();
 
 		// get result
@@ -72,7 +74,10 @@ class M_Menu extends CI_Model {
 	function getMenubyJenis($id) {
 
 		$query = $this->db->from('md_menu')
+				->join('md_jenis', 'md_jenis.id_jenis = md_menu.jenis_id')
 				->where('jenis_id', $id)
+				->where('stok', 'Tersedia')
+				->order_by('menu', 'ASC')
 				->get();
 
 		// get result

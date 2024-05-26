@@ -125,6 +125,28 @@ class M_Order extends CI_Model {
 		return $row;
 	}
 
+	public function laporanHarian($date) {
+		
+		// Build the query
+		$this->db->select('md_menu.menu, SUM(md_order_items.qty) as total_qty, SUM(md_order_items.subtotal) as total_subtotal');
+		$this->db->from('md_order_items');
+		$this->db->join('md_order', 'md_order_items.order_id = md_order.id_order');
+		$this->db->join('md_menu', 'md_order_items.menu_id = md_menu.id_menu');
+		$this->db->where('md_order.status', 'Order Selesai');
+		$this->db->where('DATE(md_order.createdt)', $date); // Use DATE() function to compare date part only
+		$this->db->group_by('md_order_items.menu_id');
+		$query = $this->db->get();
+
+		// Determine the return type
+		$row = ($this->temp_return_type == 'array') ? $query->result_array() : $query->result($this->temp_return_type);
+
+		// Reset the return type if necessary
+		$this->temp_return_type = $this->return_type;
+
+		// Return the result
+		return $row;
+	}
+
 	
 
 	/**

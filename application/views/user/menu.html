@@ -2,45 +2,17 @@
         <h2 class="section-title">Daftar Menu</h2>
         <p class="section-lead">Silahkan pilih menu di bawah ..</p>
 
-    <div class="row">
-        {foreach $daftarMenu as $item}
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <article class="article">
-                    <div class="article-header">
-                        {if $item.img != NULL}
-                            <div class="article-image" data-background="{$baseurl}assets/img/menu/{$item.img}">
-                        {else}
-                            <div class="article-image" data-background="{$baseurl}assets/img/example-image.jpg">
-                        {/if}
-                    </div>
-                    <div class="article-title">
-                        <h2><a href="#">{$item.menu}</a></h2>
-                    </div></div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            {foreach $jenis as $jen}
+                <li class="nav-item">
+                <a {if $jen.jenis == 'Makanan'} class="nav-link active" {else} class="nav-link" {/if} id="{$jen.jenis}-tab" data-toggle="tab" href="#{$jen.jenis}" role="tab" aria-controls="{$jen.jenis}" aria-selected="true">{$jen.jenis|upper}</a>
+                </li>
+            {/foreach}
+        </ul>
 
-                    <div class="article-details">
-                        <div class="article-title">
-                            {if $item.diskon == NULL}
-                                <h4>Rp {$item.harga|number_format:0:',':'.'}</h4>
-                            {else}
-                                <span style="text-decoration: line-through;">Rp {$item.harga|number_format:0:',':'.'}</span><h4>Rp {($item.harga - $item.diskon)|number_format:0:',':'.'}</h4>
-                            {/if}
-                        </div>
-
-                        <p>{$item.deskripsi}</p>
-
-                        <div class="article-cta">
-                            {if $item.diskon == NULL}
-                                <button class="btn btn-primary add-to-cart" data-id="{$item.id_menu}" data-qty="1" data-price="{$item.harga}" data-name="{$item.menu}" data-img="{$item.img}">+ Order</button>
-                            {else}
-                                <button class="btn btn-primary add-to-cart" data-id="{$item.id_menu}" data-qty="1" data-price="{$item.harga - $item.diskon}" data-name="{$item.menu}" data-img="{$item.img}">+ Order</button>
-                            {/if}
-                        </div>
-                    </div>
-                </article>
-            </div>
-        {/foreach}
-    </div>
-
+        <div class="tab-content" id="myTabContent">
+            {$daftarMenu}
+        </div>
 </div>
 
 <div class="section-header" style="position: sticky; bottom: 0; background-color: #fff; z-index: 1000;">

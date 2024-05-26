@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-07 19:10:00
+/* Smarty version 4.3.1, created on 2024-05-10 12:48:10
   from 'C:\xampp\htdocs\kantin\application\views\admin\template\sidebar.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_66128d18133aa3_34732693',
+  'unifunc' => 'content_663db51aaf0e77_96198915',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '65515c84828398151196228c65c61ae7cca0e520' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\template\\sidebar.html',
-      1 => 1712491431,
+      1 => 1713949288,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66128d18133aa3_34732693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663db51aaf0e77_96198915 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="main-sidebar sidebar-style-2">
 	<aside id="sidebar-wrapper">
 	  <div class="sidebar-brand">
@@ -55,7 +55,15 @@ admin/master/menu">Daftar Menu</a></li>
 		  </ul>
 		</li>
 
-		<li class=""><a class="nav-link" href="http://localhost/stisla/dist/credits"><i class="fas fa-pencil-ruler"></i> <span>Data Transaksi</span></a></li>
+		<li class=""><a class="nav-link" href=""><i class="fas fa-pencil-ruler"></i> <span>Data Transaksi</span></a></li>
+
+		<li>
+			<div class="dropdown-divider"></div>
+			<a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
+auth/logging_out" class="dropdown-item has-icon text-danger">
+				<i class="fas fa-sign-out-alt"></i> Logout
+			</a>
+		</li>
 	  </ul>
 
 	</aside>

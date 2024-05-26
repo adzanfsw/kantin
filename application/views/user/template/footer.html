@@ -37,7 +37,8 @@
               qty: $(this).data('qty'),
               price: $(this).data('price'),
               name: $(this).data('name'),
-              img: $(this).data('img')
+              img: $(this).data('img'),
+              jenis: $(this).data('jenis')
           };
 
           $.post('{$baseurl}user/cart/add', data, function(response) {

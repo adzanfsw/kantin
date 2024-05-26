@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-07 20:51:18
+/* Smarty version 4.3.1, created on 2024-05-26 23:43:25
   from 'C:\xampp\htdocs\kantin\application\views\admin\template\app_doc.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6612a4d6d5e0a5_31777335',
+  'unifunc' => 'content_665366ad2dfc45_59178093',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f717b394adbde77d5d7834dc274b3417a48e8c2f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\template\\app_doc.html',
-      1 => 1712497836,
+      1 => 1716741731,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6612a4d6d5e0a5_31777335 (Smarty_Internal_Template $_smarty_tpl) {
+function content_665366ad2dfc45_59178093 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-	<title>Food Point Alma Ata</title>
+	<title>Admin - Digital Student Lounge</title>
 	<link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-assets/img/web-icon.png" />
+assets/img/food-icon.png" />
 
 	<!-- General CSS Files -->
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
@@ -54,6 +54,9 @@ assets/modules/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css" rel=
     <link href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/modules/datatables/Responsive-2.2.1/css/responsive.dataTables.min.css" rel="stylesheet">
   
+	<!-- DataTables Buttons CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+	
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 assets/css/style.css">

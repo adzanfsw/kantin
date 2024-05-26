@@ -116,7 +116,7 @@ class Auth extends CI_Controller {
 
 					// Redirect to dashboard
 					$this->session->set_flashdata('notifikasi', array('message' => 'Berhasil login!', 'color' => 'green'));
-					redirect('admin/dashboard'); // Replace 'admin/dashboard' with your dashboard route
+					redirect('admin/transaksi'); // Replace 'admin/dashboard' with your dashboard route
 				} else {
 					// Incorrect password
 					$this->session->set_flashdata('notifikasi', ['message' => 'Password salah!', 'color' => 'red']);

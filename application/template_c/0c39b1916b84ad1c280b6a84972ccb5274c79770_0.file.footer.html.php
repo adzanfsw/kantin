@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-05-09 07:53:59
+/* Smarty version 4.3.1, created on 2024-05-10 13:54:45
   from 'C:\xampp\htdocs\kantin\application\views\user\template\footer.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_663c1ea7958928_55541622',
+  'unifunc' => 'content_663dc4b5b464e0_49855572',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c39b1916b84ad1c280b6a84972ccb5274c79770' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\user\\template\\footer.html',
-      1 => 1713746535,
+      1 => 1715324056,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_663c1ea7958928_55541622 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663dc4b5b464e0_49855572 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- <footer class="main-footer">
   <div class="footer-left">
@@ -91,7 +91,8 @@ assets/js/custom.js"><?php echo '</script'; ?>
               qty: $(this).data('qty'),
               price: $(this).data('price'),
               name: $(this).data('name'),
-              img: $(this).data('img')
+              img: $(this).data('img'),
+              jenis: $(this).data('jenis')
           };
 
           $.post('<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>

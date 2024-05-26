@@ -1,0 +1,71 @@
+
+<h2 class="section-title">Transaksi</h2>
+<p class="section-lead">Data Transaksi Digital Student Lounge</p>
+
+<div class="row">
+<div class="col-12">
+  <div class="card">
+	<div class="card-header">
+	  <div id="button-container" class="mb-3"></div>
+	</div>
+
+	<div class="card-body">
+		<div class="form-group col-md-5">
+			<div class="input-group mb-3">
+				<input type="date" class="form-control" id="tanggal" name="tanggal">
+				<div class="input-group-append">
+					<button class="btn btn-primary" id="filterButton" type="button">Filter</button>
+				</div>
+			</div>
+		</div>
+
+	  <div class="table-responsive">
+		<table class="table table-striped" id="tableTrans">
+		  <thead>
+			<tr>
+			  <th class="text-center">#</th>
+			  <th>Nama Menu</th>
+			  <th>Terjual</th>
+			  <th>Subtotal</th>
+			</tr>
+		  </thead>
+		  
+		  <tbody>
+			{assign var="no" value=1}
+			{foreach $trans as $item}
+			  <tr>
+				<td class="text-center">{$no}</td>
+				<td>{$item.menu}</td>
+				<td>{$item.total_qty} pcs</td>
+				<td>Rp {$item.total_subtotal|number_format:0:',':'.'}</td>
+			  </tr>
+			  {assign var="no" value=$no+1}
+			{/foreach}
+			
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the elements
+        const tanggalInput = document.getElementById('tanggal');
+        const filterButton = document.getElementById('filterButton');
+
+        // Add click event listener to the button
+        filterButton.addEventListener('click', function() {
+            // Get the value of the date input
+            const inputValue = tanggalInput.value;
+
+            // Construct the URL with the inputValue
+            const url = "{$baseurl}admin/transaksi?date=" + inputValue;
+
+            // Redirect to the constructed URL
+            window.location.href = url;
+        });
+    });
+</script>

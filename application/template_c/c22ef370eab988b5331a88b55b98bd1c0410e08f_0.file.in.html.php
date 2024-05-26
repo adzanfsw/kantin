@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-07 20:26:45
+/* Smarty version 4.3.1, created on 2024-05-10 12:48:32
   from 'C:\xampp\htdocs\kantin\application\views\admin\order\in.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_66129f15edacb5_54592535',
+  'unifunc' => 'content_663db5303870a1_83659439',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c22ef370eab988b5331a88b55b98bd1c0410e08f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\order\\in.html',
-      1 => 1712496404,
+      1 => 1713864175,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66129f15edacb5_54592535 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663db5303870a1_83659439 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 
@@ -30,8 +30,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\a
 <div class="col-12">
   <div class="card">
     <div class="card-header">
-      <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
-admin/master/menu/addMenu" class="btn btn-warning">Refresh</a>
+      <button onclick="location.reload()" class="btn btn-primary">Refresh</button>
     </div>
 
     <div class="card-body">
@@ -45,6 +44,7 @@ admin/master/menu/addMenu" class="btn btn-warning">Refresh</a>
               <th>Total</th>
               <th>Status</th>
               <th>Action</th>
+              <th></th>
             </tr>
           </thead>
           
@@ -83,7 +83,8 @@ admin/order/setDiproses?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_
 admin/order/takeOrder?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_order'];?>
 " class="btn btn-outline-info" style="line-height: 12px;">Ambil Order</a>
                   <?php }?>
-
+                </td>
+                <td>
                   <a href="<?php echo $_smarty_tpl->tpl_vars['baseurl']->value;?>
 admin/order/setBatal?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_order'];?>
 "

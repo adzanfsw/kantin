@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2024-04-07 20:52:45
+/* Smarty version 4.3.1, created on 2024-05-10 12:48:23
   from 'C:\xampp\htdocs\kantin\application\views\admin\order\success.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6612a52d1ea226_18150216',
+  'unifunc' => 'content_663db5276975a0_53181726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1778e5f324a608251e63f38338b028d42eb85498' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kantin\\application\\views\\admin\\order\\success.html',
-      1 => 1712497940,
+      1 => 1713920115,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6612a52d1ea226_18150216 (Smarty_Internal_Template $_smarty_tpl) {
+function content_663db5276975a0_53181726 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\kantin\\application\\third_party\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 
@@ -80,32 +80,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </div>
 </div>
 </div>
-
-<?php if ((isset($_smarty_tpl->tpl_vars['notifApp']->value)) && $_smarty_tpl->tpl_vars['notifApp']->value != NULL) {
-echo '<script'; ?>
->
-  var pesan	= "<?php echo $_smarty_tpl->tpl_vars['notifApp']->value['message'];?>
-";
-  var warna	= "<?php echo $_smarty_tpl->tpl_vars['notifApp']->value['color'];?>
-";
-  var type	= '';
-  
-  if (warna == 'red') {
-    type = 'error';
-  } else {
-    type = 'success';
-  }
-
-  // Automatically show iziToast notification when the page loads
-  document.addEventListener('DOMContentLoaded', function() {
-    iziToast[type]({
-      message: pesan, // Use the JavaScript variable here
-      position: 'topCenter',
-      color: warna,
-    });
-  });
-<?php echo '</script'; ?>
->
 <?php }
-}
 }

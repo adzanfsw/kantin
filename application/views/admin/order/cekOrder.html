@@ -42,7 +42,7 @@
 								<div style="width: 50px; height: 35px; background-image: url({$baseurl}assets/img/example-image.jpg); background-size: cover;"> </div>
 								{/if}
 							</td>
-							<td class="text-left" style="text-align: left;">{$item.menu}</td>
+							<td class="text-left" style="text-align: left;">{$item.menu} | {$item.catatan}</td>
 							<td class="text-center">Rp {$item.harga|number_format:0:',':'.'}</td>
 							<td class="text-center">{$item.qty}</td>
 							<td class="text-center"><b>Rp {$item.subtotal|number_format:0:',':'.'}</b></td>
